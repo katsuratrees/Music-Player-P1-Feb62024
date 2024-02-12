@@ -4,5 +4,5 @@ Project
 # To Do List
 > [] Item 1
 > [x] Item done
-> [Work] <del> I do not wanna do this
+> [] <del> I do not wanna do this
 > []
