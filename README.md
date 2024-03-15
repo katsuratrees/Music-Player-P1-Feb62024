@@ -1,6 +1,8 @@
 # Music-Player-P1-Feb62024
 Project
 
+My name is Wayne
+
 # To Do List
 > [] Item 1
 > [x] Item done
