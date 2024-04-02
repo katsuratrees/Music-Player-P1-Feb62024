@@ -13,11 +13,10 @@ My name is Wayne Agbulos
 ---
 
 # Progression
-- [ ] 
-
----
-
+- [0/3] Create Child Pages, MetaData, Preview 
+-Minum
+-
 # To Include
-- [ ] TBA
-
----
+- [ ] 
+-Audio Folder
+-What it looks like
