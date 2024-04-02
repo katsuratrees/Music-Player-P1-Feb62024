@@ -15,8 +15,18 @@ My name is Wayne Agbulos
 # Progression
 -[x]Case Study
 - [0/3] Create Document Map
-- Tuning, Shuffle, Time
+- Tuning
+- 
 # To Include
 - [ ] 
--Audio Folder
--What it looks like
+- Audio Folder
+- What it looks like
+- Adjustable Volume
+- Repeat
+- Settings
+- 
+# Maybe Adds
+- Favourites
+- Shuffle
+- Slow/Speed up
+- 
