@@ -9,13 +9,13 @@ My name is Wayne Agbulos
 - [ ] <del>I do not want to do this<del>
 - [ ] Last attempted 20240212
 - [ ] TBA
-
+- [x] Install Minum
 ---
 
 # Progression
-- [0/3] Create Child Pages, MetaData, Preview 
--Minum
--
+-[x]Case Study
+- [0/3] Create Document Map
+- Tuning, Shuffle, Time
 # To Include
 - [ ] 
 -Audio Folder
