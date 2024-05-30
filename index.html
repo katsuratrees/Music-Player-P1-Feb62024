@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <!-- Used by the Keyboard-->
+    <meta charset="utf-8">
+
+    <title>Music Player</title>
+    <!-- Tab Favicon can be changed too, Google this-->
+    <!-- See https://www.w3schools.com/howto/howto_html_favicon.asp , accessed 20240214-->
+
+    <!-- Used by browser or Google Search-->
+    <meta name="author" content="Wayne Agbulos">
+    <meta name="description" content="Learning HTML by building a simple Website">
+    <meta name="keywords" content="learning, html, boilerplate, starter">
+    <meta name="viewport" content="width=device-width, intial-scale=1.0">
+    <!-- Content give value for name or http-equiv attribute, text entry in string or array string -->
+    <!-- meta http-equiv="default-style" content=""--> <!-- content matches css link exactly-->
+    <!-- Other meta attributes to be aware of -->
+    <!-- meta http-equiv="refresh" content="30"-->
+    <!-- Content forces a Internet Request to refresh webpage every "time value in seconds" -->
+    <!-- Use this when refreshes are needed -->
+    <!-- meta http-equiv="content-type" content="text/html; charset=UTF-8" -->
+    <!-- Already specified in the charset above-->
+    <!-- Cyber Security Note about JavaScript in Browsers-->
+
+    <!-- Websites Load in a specific order: Head, CSS, JavaScript, then the Body-->
+
+    <style>
+    * {box-sizing: border-box}
+    body {font-family: Verdana, sans-serif; margin:0}
+    .mySlides {display: none}
+    img {vertical-align: middle;}
+
+    /* Slideshow container */
+    .slideshow-container {
+    max-width: 1000px;
+    position: relative;
+    margin: auto;
+    }
+
+    /* Next & previous buttons */
+    .prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    }
+
+    /* Position the "next button" to the right */
+    .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+    }
+
+    /* On hover, add a black background color with a little bit see-through */
+    .prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+    }
+
+    /* Caption text */
+    .text {
+    color: #717171;
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+    }
+
+    /* Number text (1/3 etc) */
+    .numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+    }
+
+    /* The dots/bullets/indicators */
+    .dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+    }
+
+    .active, .dot:hover {
+    background-color: #717171;
+    }
+
+    /* Fading animation */
+    .fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+    }
+
+    @keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+    }
+
+    /* On smaller screens, decrease text size */
+    @media only screen and (max-width: 300px) {
+    .prev, .next,.text {font-size: 11px}
+    }
+        * {
+            box-sizing: border-box;
+            font-size: 2vw;
+        }
+        div { border: thin dotted red; }
+
+        .header {
+            border: 1px solid green;
+            padding: 15px;
+            font-size: 4vw;
+        }
+
+        .nav {
+            width: 25%;
+            float: left;
+            padding: 15px;
+            border: 1px solid rgb(19, 0, 128);
+        }
+
+        .main {
+            width: 50%;
+            float: left;
+            padding: 15px;
+            border: 1px solid rgb(19, 0, 128);
+        }
+
+        .aside {
+            width: 25%;
+            float: left;
+            padding: 15px;
+            border: 1px solid rgb(19, 0, 128);
+        }
+
+        .footer {
+            padding: 15px;
+            border: 1px solid rgb(19, 0, 128);
+        } 
+        .overlay {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0, 0.9);
+  overflow-x: hidden;
+  transition: 0.5s;
+}
+
+.overlay-content {
+  position: relative;
+  top: 25%;
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.overlay a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 36px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.overlay a:hover, .overlay a:focus {
+  color: #f1f1f1;
+}
+
+.overlay .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+}
+
+@media screen and (max-height: 450px) {
+  .overlay a {font-size: 20px}
+  .overlay .closebtn {
+  font-size: 40px;
+  top: 15px;
+  right: 35px;
+  }
+}
+
+    </style>
+
+    <noscript>Running JavaScript is not necessary in the HTML page ... FYI: your Feature to execute scripts is turned off.</noscript>
+
+</head>
+
+<!-- Start here, BODY Semantic Tags-->
+<body>
+    <div>ViewPort Units are ON</div>
+
+    <div id="myNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="overlay-content">
+          <a href="#">Meta Data</a>
+          <a href="#">Child Pages</a>
+          <a href="#">Images</a>
+          <a href="#"></a>
+        </div>
+      </div>
+      
+      <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Links</span>
+      
+      <script>
+      function openNav() {
+        document.getElementById("myNav").style.width = "100%";
+      }
+      
+      function closeNav() {
+        document.getElementById("myNav").style.width = "0%";
+      }
+      </script>
+           
+    <header class="header">
+        <h1 style="text-align: center;">Music Player</h1>
+        <h3 style="text-align: center;">Subtitle, H3</h3>
+        <p>Paragraph Tag, any writing</p>
+    </header>
+    <div class="slideshow-container">
+
+        <div class="mySlides fade">
+          <div class="numbertext">1 / 2</div>
+          <img src="Insert Img" style="width:10vw">
+          <div class="text">Examples of what the Music Player can include</div>
+        </div>
+        
+        <div class="mySlides fade">
+          <div class="numbertext">2 / 2</div>
+          <img src="" style="width:100%">
+          <div class="text">Caption Two</div>
+        </div>
+        
+        <a class="prev" onclick="plusSlides(-1)">❮</a>
+        <a class="next" onclick="plusSlides(1)">❯</a>
+        
+        </div>
+        <br>
+        
+        <div style="text-align:center">
+          <span class="dot" onclick="currentSlide(1)"></span> 
+          <span class="dot" onclick="currentSlide(2)"></span> 
+        </div>
+        
+        <script>
+        let slideIndex = 1;
+        showSlides(slideIndex);
+        
+        function plusSlides(n) {
+          showSlides(slideIndex += n);
+        }
+        
+        function currentSlide(n) {
+          showSlides(slideIndex = n);
+        }
+        
+        function showSlides(n) {
+          let i;
+          let slides = document.getElementsByClassName("mySlides");
+          let dots = document.getElementsByClassName("dot");
+          if (n > slides.length) {slideIndex = 1}    
+          if (n < 1) {slideIndex = slides.length}
+          for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";  
+          }
+          for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+          }
+          slides[slideIndex-1].style.display = "block";  
+          dots[slideIndex-1].className += " active";
+        }
+        </script>
+    <main class="main">
+        <h1>MAIN, H-Tags, in h1</h1>
+        <h2>H2: text</h2>
+        <h3>H3: text</h3>
+        <h4>H4: text</h4>
+        <h5>H5: text</h5>
+        <h6>H6: text</h6>
+        <p>Paragraphs can include different types of <sup>big</sup> writing and <sub>small</sub> writing.</p>
+        <a>Hyperlink, text only, in a-tag</a>
+        <br><br>
+        <section class="section">
+                <h2>Section H-Tags, in h2</h2>
+                <h3>SubHeadings usually stop at H3, in h3</h3>
+                <p>H2 is the largest. Put anything in SECTION-tags, in p-tag</p>
+                <a>Hyperlink, text only, in a-tag</a>
+                <br><br>
+                <article class="section">
+                    <h2>Article H-Tags, in h2</h2>
+                    <h3>SubHeadings usually stop at H3, in h3</h3>
+                    <p>Writing Only in P-Tags</p>
+                    <a>Hyperlink, text only, in a-tag</a>
+                </article>
+         </section>
+    </main>
+    <aside class="aside">
+        <h2>Information about these images</h2>
+        <p>
+            Image #1, : <a href="" target="_blank">Find where this lives</a>
+        </p>
+        <p>
+            Image #2, : <a href="" target="_blank">Find where this lives</a>
+        </p>
+        <p>Paragraph Tag</p>
+        <a>Hyperlink, text only, in a-tag</a>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br>
+    </aside>
+    <footer class="footer" style="text-align: center;">
+        <h1>Footer H-Tags,in h1</h1>
+        <p>Paragraph Tag</p>
+    </footer>
+</body>
+  <footer></footer>
+    <blockquote cite="">
+        <!-- Date Accessed 20240214-->
+    </blockquote>
+    <p>
+        <strong>" We are all connected to the internet, like neurons in a brain."</strong>
+        <em>- Stephen Hawking</em>
+    </p>
+    <p>&copy Wayne Agbulos, powered by KatsuraTrees in GitHub</p>
+    <!-- Other information possilbe like Number of Visitor, Location, author contract information-->
+</footer>
+</html>
